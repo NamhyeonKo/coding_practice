@@ -4,20 +4,21 @@
 #include <string.h>
 #include <stdlib.h>
 
-int factorial(int n){
-    int f = 1;
-    for(int i=1;i<=n;i++) f*=i;
+long long factorial(int start, int end){
+    long long f = 1;
+    for(int i=start; i<=end; i++)f*=i;
     return f;
 }
 
 int main(){
-    int t, k, n, i, num;
+    int t, k, n, i;
+    long long num;
 
     scanf("%d",&t);
     
     for(i=0;i<t;i++){
         scanf("%d\n%d",&k,&n);
-        num = factorial(k+n)/(factorial(k+1)*factorial(n-1));
+        num = factorial(k+2,k+n)/factorial(1,n-1);
         printf("%d\n",num);
     }
 
