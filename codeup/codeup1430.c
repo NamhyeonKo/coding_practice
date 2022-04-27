@@ -3,8 +3,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+int num[10000000];
+
 int main(){
-    int num[10000000]={0}, check[100000];
+    int check[100000];
     int n, m, i, new;
 
     scanf("%d",&n);
