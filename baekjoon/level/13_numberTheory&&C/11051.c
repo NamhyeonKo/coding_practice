@@ -1,25 +1,24 @@
-// 이항 계수 2
+// 이항 계수2
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-long long multiple(int start,int cnt){
-    int i;
-    long long m = 1;
-
-    for(i=0; i<cnt; i++)m *= (start-i);
-    return m;
-}
+int pascal[1001][1001];
 
 int main(){
-    int n, k, i, min;
-    long long res;
+    int n, k, i,j;
 
     scanf("%d %d",&n,&k);
-    min = k<n-k? k:n-k;
-    res = multiple(n,min) / multiple(min,min);
-    printf("%d\n",res%10007);
+
+    for(i=0;i<=n;i++){
+        for(j=0;j<i+1;j++){
+            if(j==0||j==i)pascal[i][j]=1;
+            else pascal[i][j]=(pascal[i-1][j-1]+pascal[i-1][j])%10007;
+        }
+    }
+
+    printf("%d",pascal[n][k]);
 
     return 0;
 }
