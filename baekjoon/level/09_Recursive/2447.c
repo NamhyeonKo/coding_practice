@@ -7,13 +7,13 @@
 
 void makeHole(char **ar,int istart, int jstart, int n){
     int i, j;
-    for(i = istart + (n / 3) ; i < (n / 3) * 2 ; i++)
-        for(j = jstart + (n / 3) ; j < (n / 3) * 2 ; j++)
+    for(i = istart + n ; i < istart + n * 2 ; i++)
+        for(j = jstart + n ; j < jstart + n * 2 ; j++)
             ar[i][j] = ' ';
-    if(n != 3){
-        for(i = 0 ; i < n / 3 ; i++)
-            for(j = 0 ; j < n / 3 ; j++)
-                makeHole(ar, i * 3, j * 3, n / 3);
+    if(n != 1){
+        for(i = 0 ; i < n ; i++)
+            for(j = 0 ; j < n ; j++)
+                makeHole(ar, i * 3, j * 3, n/3);
     }
 }
 
@@ -27,7 +27,7 @@ int main(){
 
     for(i=0;i<n; i++)for(j=0;j<n; j++)arr[i][j]='*';
 
-    makeHole(arr, 0, 0, n);
+    makeHole(arr, 0, 0, n/3);
 
     for(i=0;i<n; i++){
         for(j=0;j<n; j++)printf("%c",arr[i][j]);
