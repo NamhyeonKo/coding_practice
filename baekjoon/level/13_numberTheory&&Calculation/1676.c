@@ -21,6 +21,7 @@ int main(){
             num[1]++;
             m/=5;
         }
+        m = 1;
     }
 
     min = num[0]<num[1]?num[0]:num[1];
